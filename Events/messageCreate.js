@@ -5,9 +5,10 @@ module.exports = {
     async execute(message) {
         // Makes sure message happens in a regular text channel
         if (message.guild != null) {
-            //check if the coutning module is enabled
+            //check if the counting module is enabled
+            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": message.guildId}})
 
-            //if counting enabled:
+            if (response['data']['counting']) {
 
                 // Retrieve all counting related data
                 const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": message.guildId}});
@@ -19,7 +20,7 @@ module.exports = {
                 if (message.channelId == channel) {
                     if (Number(message.cleanContent)) {
                         new_count = message.cleanContent;
-                        if (last_count+1  == new_count) {
+                        if (last_count + 1 == new_count) {
                             if (last_counter != message.author.id) {
                                 axios.put('http://127.0.0.1:8000/counting/', {
                                     "id": message.guildId,
@@ -46,7 +47,7 @@ module.exports = {
                         }
                     }
                 }
-
+            }
 
             //if leveling enabled
         }
