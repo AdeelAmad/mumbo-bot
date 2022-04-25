@@ -123,7 +123,11 @@ module.exports = {
                             .setStyle(determineColor('afkmusic')),
                     );
 
-                await i.update({content: "Enable or disable modules:", components: [newrow]})
+                await i.update({embeds: [setEmbed], components: [newrow]})
+            });
+
+            collector.on('end', async i => {
+                await interaction.editReply({content: "This Panel Has Expired. Run /settings to make a new one", components: [], embeds: []});
             });
 
 
