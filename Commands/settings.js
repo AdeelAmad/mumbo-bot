@@ -123,17 +123,12 @@ module.exports = {
                             .setStyle(determineColor('afkmusic')),
                     );
 
-                await i.update({embeds: [setEmbed], components: [newrow]})
+                await i.update({embeds: [setEmbed], components: [newrow]}).catch(function (error) {return;});
             });
 
             collector.on('end', async i => {
                 await interaction.editReply({content: "This Panel Has Expired. Run /settings to make a new one", components: [], embeds: []}).catch(function (error) {return;});
             });
-
-
-
-
-
         } else {
             await interaction.reply({
                 content: "You do not have the permissions to run this command. Please talk to and admin if you believe this is a mistake",
