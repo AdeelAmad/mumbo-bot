@@ -93,7 +93,7 @@ module.exports = {
                     "leveling": leveling,
                     "afkmusic": afkmusic,
                     "alert": response['data']['alert']
-                })
+                }).catch(function (error) {return;})
 
                 function determineColor (module) {
                     if (response['data'][module] === true) {
@@ -127,7 +127,7 @@ module.exports = {
             });
 
             collector.on('end', async i => {
-                await interaction.editReply({content: "This Panel Has Expired. Run /settings to make a new one", components: [], embeds: []});
+                await interaction.editReply({content: "This Panel Has Expired. Run /settings to make a new one", components: [], embeds: []}).catch(function (error) {return;});
             });
 
 
