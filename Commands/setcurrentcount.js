@@ -18,14 +18,14 @@ module.exports = {
             .setTimestamp()
 
         if (interaction.member.permissions.has('ADMINISTRATOR')) {
-            const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": interaction.guildId}})
+            const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
             axios.put('http://127.0.0.1:8000/counting/', {
                 "id": interaction.guildId,
                 "channel": response['data']['channel'],
                 "last_count": interaction.options.getInteger('count'),
                 "last_counter": response['data']['last_counter']
-            })
+            }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
 
 
             await interaction.reply({embeds: [setEmbed]});

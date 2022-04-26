@@ -18,14 +18,14 @@ module.exports = {
             .setTimestamp()
 
         if (interaction.member.permissions.has('ADMINISTRATOR')) {
-            const response = await axios.get('http://127.0.0.1:8000/voicechannels/', {"data": {"id": interaction.guildId}})
+            const response = await axios.get('http://127.0.0.1:8000/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
             axios.put('http://127.0.0.1:8000/voicechannels/', {
                 "id": interaction.guildId,
                 "channel_id": interaction.options.getChannel('channel')['id'],
                 "category": response['data']['category'],
                 "bitrate": response['data']['bitrate']
-            })
+            }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
 
             await interaction.reply({embeds: [setEmbed]});
         } else {

@@ -19,8 +19,8 @@ module.exports = {
                 .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', URL: 'https://deelio.gitbook.io/mumbo-afk/'})
                 .setTimestamp()
 
-            id = interaction.member.id
-            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": interaction.guildId}})
+            id = interaction.member.id;
+            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
             function determineColor (module) {
                 if (response['data'][module] === true) {
@@ -58,7 +58,7 @@ module.exports = {
 
             const filter = (interaction) => {
                 if (interaction.user.id === id) return true;
-                return interaction.reply({content: "You cannot use this button"});
+                return interaction.reply({content: "You cannot use this button", ephemeral: true});
             };
 
             const collector = interaction.channel.createMessageComponentCollector({filter, time: 150000})
@@ -93,7 +93,7 @@ module.exports = {
                     "leveling": leveling,
                     "afkmusic": afkmusic,
                     "alert": response['data']['alert']
-                }).catch(function (error) {return;})
+                }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {return;})
 
                 function determineColor (module) {
                     if (response['data'][module] === true) {

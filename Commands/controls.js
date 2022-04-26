@@ -26,7 +26,7 @@ module.exports = {
 
         console.log(channelid)
 
-        channeldata = await axios.get('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channelid}}).catch(async function (error) {
+        channeldata = await axios.get('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channelid}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(async function (error) {
             await interaction.reply({
                 content: "You are not in a voice channel.",
                 ephemeral: true

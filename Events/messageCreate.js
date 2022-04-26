@@ -6,12 +6,12 @@ module.exports = {
         // Makes sure message happens in a regular text channel
         if (message.guild != null) {
             //check if the counting module is enabled
-            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": message.guildId}})
+            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": message.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
 
             if (response['data']['counting']) {
 
                 // Retrieve all counting related data
-                const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": message.guildId}});
+                const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": message.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                 const last_count = response['data']['last_count'];
                 const last_counter = response['data']['last_counter'];
                 const channel = response['data']['channel'];
@@ -27,7 +27,7 @@ module.exports = {
                                     "channel": channel,
                                     "last_count": new_count,
                                     "last_counter": message.author.id
-                                });
+                                }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             } else {
                                 message.delete();
                                 if (!message.author.bot) {
