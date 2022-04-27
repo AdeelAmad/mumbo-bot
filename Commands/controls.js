@@ -54,9 +54,13 @@ module.exports = {
 
                 await interaction.reply({embeds: [setEmbed], components: [controlrow]});
 
+
+
+
                 const filter = (interaction) => {
                     if ((interaction.user.id === id) && interaction.customId == "lock" || interaction.customId == "unlock") return true;
-                    return interaction.reply({content: "You cannot use this button"});
+                    if (interaction.customId == "counting" || interaction.customId == "leveling" || interaction.customId == "voicechannel" || interaction.customId == "afkmusic") return;
+                    return interaction.reply({content: "You cannot use this button", ephemeral: true});
                 };
 
                 const controlcollector = interaction.channel.createMessageComponentCollector({filter, time: 60000})
@@ -116,8 +120,8 @@ module.exports = {
                     }).catch(function (error) {
                         return;
                     });
+                });
 
-                })
             } else {
                 await interaction.reply({
                     content: "You have to own the channel to be able to control it.",

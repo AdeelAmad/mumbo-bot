@@ -55,9 +55,9 @@ module.exports = {
 
 
 
-
             const filter = (interaction) => {
-                if (interaction.user.id === id) return true;
+                if (interaction.user.id === id && interaction.customId == "counting" || interaction.customId == "leveling" || interaction.customId == "voicechannel" || interaction.customId == "afkmusic") return true;
+                if (interaction.customId == "lock" || interaction.customId == "unlock") return;
                 return interaction.reply({content: "You cannot use this button", ephemeral: true});
             };
 
@@ -86,14 +86,14 @@ module.exports = {
                         afkmusic = !response['data']['afkmusic']
                 }
 
-                response = await axios.put('http://127.0.0.1:8000/management/', {
+                response = await axios.put('https://api.mumbobot.xyz/management/', {
                     "id": interaction.guildId,
                     "counting": counting,
                     "voicechannel": voicechannel,
                     "leveling": leveling,
                     "afkmusic": afkmusic,
                     "alert": response['data']['alert']
-                }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {return;})
+                }).catch(function (error) {return;})
 
                 function determineColor (module) {
                     if (response['data'][module] === true) {
@@ -129,6 +129,8 @@ module.exports = {
             collector.on('end', async i => {
                 await interaction.editReply({content: "This Panel Has Expired. Run /settings to make a new one", components: [], embeds: []}).catch(function (error) {return;});
             });
+
+
         } else {
             await interaction.reply({
                 content: "You do not have the permissions to run this command. Please talk to and admin if you believe this is a mistake",
