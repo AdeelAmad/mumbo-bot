@@ -1,4 +1,8 @@
 const axios = require('axios')
+const { joinVoiceChannel } = require('@discordjs/voice');
+const { getVoiceConnection, generateDependencyReport } = require('@discordjs/voice');
+const { createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
+const { createReadStream } = require('node:fs');
 
 module.exports = {
     name: 'voiceStateUpdate',
@@ -88,6 +92,52 @@ module.exports = {
                             };
                         };
                     });
+                };
+            };
+        };
+
+        if (guildsettings['data']['afkmusic']) {
+            if (newState.guild.afkChannelId == newState.channelId) {
+                if (newState.channel != oldState.channel) {
+                    if (!newState.member.user.bot) {
+                        if (getVoiceConnection(newState.guild.id)) {
+                            getVoiceConnection(newState.guild.id).rejoin();
+                            newState.guild.members.fetch('744992005158862939').then((member) => {
+                                member.edit({mute: false, deaf: true}).catch(function (error){return;});
+                            });
+                        } else {
+                            if (newState.guild.afkChannelId != null) {
+                                const player = createAudioPlayer();
+
+                                const resource = createAudioResource(createReadStream('./Events/audio/afk.mp3', {
+                                    inputType: StreamType.OggOpus,
+                                }));
+
+                                player.play(resource);
+
+                                player.on('idle', () => {
+                                    const resource = createAudioResource(createReadStream('./Events/audio/afk.mp3', {
+                                        inputType: StreamType.OggOpus,
+                                    }));
+                                    player.play(resource);
+                                });
+
+                                const connection = joinVoiceChannel({
+                                    channelId: newState.guild.afkChannelId,
+                                    guildId: newState.guild.id,
+                                    adapterCreator: newState.guild.voiceAdapterCreator,
+                                });
+
+                                newState.guild.members.fetch('744992005158862939').then((member) => {
+                                    member.edit({mute: false, deaf: true}).catch(function (error) {
+                                        return;
+                                    });
+                                });
+
+                                const subscription = connection.subscribe(player);
+                            };
+                        };
+                    };
                 };
             };
         };
