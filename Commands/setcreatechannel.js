@@ -6,7 +6,8 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('setcreatechannel')
         .setDescription('Sets the channel for the bot to monitor for voice channel creation')
-        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for voice channel creation').setRequired(true)),
+        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for voice channel creation').setRequired(true))
+        .setDefaultPermission(false),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()

@@ -6,7 +6,8 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('setcreatebitrate')
         .setDescription('Sets the bitrate for voice channels to be created with')
-        .addIntegerOption(option => option.setName('bitrate').setDescription('Select a category for voice channels to be created with').setRequired(true)),
+        .addIntegerOption(option => option.setName('bitrate').setDescription('Select a category for voice channels to be created with').setRequired(true))
+        .setDefaultPermission(false),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()

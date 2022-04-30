@@ -6,7 +6,8 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('setcreatecategory')
         .setDescription('Sets the category for voice channels to be created in')
-        .addChannelOption(option => option.setName('category').setDescription('Select a category for voice channels to be created in').setRequired(true)),
+        .addChannelOption(option => option.setName('category').setDescription('Select a category for voice channels to be created in').setRequired(true))
+        .setDefaultPermission(false),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()

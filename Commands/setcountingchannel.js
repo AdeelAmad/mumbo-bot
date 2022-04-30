@@ -6,7 +6,8 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('setcountingchannel')
         .setDescription('Sets the channel for the bot to monitor for counting')
-        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for counting moderation').setRequired(true)),
+        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for counting moderation').setRequired(true))
+        .setDefaultPermission(false),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()

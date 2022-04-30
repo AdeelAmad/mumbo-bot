@@ -6,6 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('stats')
         .setDescription('Bot stats and uptime'),
+
     async execute(interaction) {
 
         membercount = 0;

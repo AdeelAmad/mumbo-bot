@@ -6,7 +6,8 @@ const axios = require('axios')
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('settings')
-        .setDescription('Change bot settings for the server'),
+        .setDescription('Change bot settings for the server')
+        .setDefaultPermission(false),
 
     async execute(interaction) {
         if (interaction.member.permissions.has('ADMINISTRATOR')) {
