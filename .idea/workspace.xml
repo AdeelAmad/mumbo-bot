@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6feab43d-09a3-4a5d-ac80-d9d331ec33b1" name="Changes" comment="Fixed labels in disable.js. Added setcountingchannel.js. Does not function in back end yet. Added permission check that will only allow admins to run restricted commands. Additionally warns users if they don't have the correct permission and will send an ephemeral message.">
-      <change afterPath="$PROJECT_DIR$/Events/audio/afk.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Events/audio/afk.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/ping.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/stats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/ready.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/voiceStateUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/voiceStateUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/settings.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +109,7 @@
       <workItem from="1650921573882" duration="866000" />
       <workItem from="1650937686759" duration="756000" />
       <workItem from="1651013623246" duration="6076000" />
-      <workItem from="1651112037667" duration="14799000" />
+      <workItem from="1651112037667" duration="15782000" />
     </task>
     <task id="LOCAL-00001" summary="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command.">
       <created>1637215447120</created>

@@ -93,7 +93,7 @@ module.exports = {
                     "leveling": leveling,
                     "afkmusic": afkmusic,
                     "alert": response['data']['alert']
-                }).catch(function (error) {return;})
+                }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {return;})
 
                 function determineColor (module) {
                     if (response['data'][module] === true) {
