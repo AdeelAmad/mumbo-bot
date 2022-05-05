@@ -4,28 +4,28 @@ const axios = require('axios')
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('setcreatechannel')
-        .setDescription('Sets the channel for the bot to monitor for voice channel creation')
-        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for voice channel creation').setRequired(true)),
+        .setName('setglobalboost')
+        .setDescription('Sets the server wide xp boost')
+        .addNumberOption(option => option.setName('boost').setDescription('Set the server wide xp boost').setRequired(true)),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()
             .setColor('#ef6459')
-            .setTitle(`Successfully set ${interaction.options.getChannel('channel')} to the create channel.`)
+            .setTitle(`Successfully set ${interaction.options.getNumber('boost')} to the global boost.`)
 
             //Mumbo website link
             .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', URL: 'https://deelio.gitbook.io/mumbo-afk/'})
             .setTimestamp()
 
         if (interaction.member.permissions.has('ADMINISTRATOR')) {
-            const response = await axios.get('http://127.0.0.1:8000/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+            const response = await axios.get('http://127.0.0.1:8000/leveling/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-            axios.put('http://127.0.0.1:8000/voicechannels/', {
+            axios.put('http://127.0.0.1:8000/leveling/', {
                 "id": interaction.guildId,
-                "channel_id": interaction.options.getChannel('channel')['id'],
-                "category": response['data']['category'],
-                "bitrate": response['data']['bitrate']
+                "global_boost": interaction.options.getNumber('boost'),
+                "levelupchannel": response['data']['levelupchannel'],
             }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+
 
             await interaction.reply({embeds: [setEmbed]});
         } else {

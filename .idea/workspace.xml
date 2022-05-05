@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6feab43d-09a3-4a5d-ac80-d9d331ec33b1" name="Changes" comment="Fixed labels in disable.js. Added setcountingchannel.js. Does not function in back end yet. Added permission check that will only allow admins to run restricted commands. Additionally warns users if they don't have the correct permission and will send an ephemeral message.">
+      <change afterPath="$PROJECT_DIR$/Commands/setglobalboost.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Commands/setlevelupchannel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/setcountingchannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcountingchannel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/setcreatebitrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatebitrate.js" afterDir="false" />
@@ -12,7 +14,7 @@
       <change beforePath="$PROJECT_DIR$/Commands/setcreatechannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatechannel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/setcurrentcount.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcurrentcount.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/stats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/messageCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/messageCreate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +75,7 @@
       <recent name="C:\Users\Adeel\WebstormProjects\mumbo\Commands" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Deploy Commands">
+  <component name="RunManager" selected="Node.js.Bot Run">
     <configuration name="Bot Run" type="NodeJSConfigurationType" path-to-node="$PROJECT_DIR$/../../../../Program Files/nodejs/node" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -117,6 +119,8 @@
       <workItem from="1651013623246" duration="6076000" />
       <workItem from="1651112037667" duration="17148000" />
       <workItem from="1651351143498" duration="127000" />
+      <workItem from="1651631028315" duration="2256000" />
+      <workItem from="1651708863331" duration="3176000" />
     </task>
     <task id="LOCAL-00001" summary="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command.">
       <created>1637215447120</created>

@@ -6,12 +6,18 @@ module.exports = {
         // Makes sure message happens in a regular text channel
         if (message.guild != null) {
             //check if the counting module is enabled
-            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": message.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+            response = await axios.get('http://127.0.0.1:8000/management/', {
+                "data": {"id": message.guildId},
+                auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+            })
 
             if (response['data']['counting']) {
 
                 // Retrieve all counting related data
-                const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": message.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                const response = await axios.get('http://127.0.0.1:8000/counting/', {
+                    "data": {"id": message.guildId},
+                    auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                });
                 const last_count = response['data']['last_count'];
                 const last_counter = response['data']['last_counter'];
                 const channel = response['data']['channel'];
@@ -45,11 +51,47 @@ module.exports = {
                         if (!message.author.bot) {
                             message.author.send("Come on, you gotta send a number");
                         }
+                        ;
                     }
+                    ;
                 }
+                ;
             }
+            ;
 
             //if leveling enabled
-        }
+            if (response['data']['leveling']) {
+                userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
+                    "data": {
+                        "id": message.author.id,
+                        "guild_id": message.guildId
+                    }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                }).catch(async function () {
+                    await axios.post('http://127.0.0.1:8000/leveling/user/', {
+                        "id": message.author.id,
+                        "guild_id": message.guildId
+                    }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                });
+
+                userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
+                    "data": {
+                        "id": message.author.id,
+                        "guild_id": message.guildId
+                    }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                });
+
+                if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
+                    oldxp = userdata['data']['xp'];
+                    awardedxp = Math.floor(Math.random() * (10) + 15);
+                    newxp = oldxp + awardedxp;
+
+                    axios.put('http://127.0.0.1:8000/leveling/user/', {
+                        "id": message.author.id,
+                        "guild_id": message.guildId,
+                        "xp": newxp
+                    }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                };
+            };
+        };
     },
-};
+}

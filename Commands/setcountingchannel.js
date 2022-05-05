@@ -6,8 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('setcountingchannel')
         .setDescription('Sets the channel for the bot to monitor for counting')
-        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for counting moderation').setRequired(true))
-        .setDefaultPermission(false),
+        .addChannelOption(option => option.setName('channel').setDescription('Select a channel to set for counting moderation').setRequired(true)),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()
@@ -31,6 +30,6 @@ module.exports = {
             await interaction.reply({embeds: [setEmbed]});
         } else {
             await interaction.reply({content: "You do not have the permissions to run this command. Please talk to and admin if you believe this is a mistake", ephemeral: true});
-        }
+        };
     },
 };

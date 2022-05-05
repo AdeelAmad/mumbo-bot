@@ -6,8 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('setcurrentcount')
         .setDescription('Sets the current count of the counting channel')
-        .addIntegerOption(option => option.setName('count').setDescription('Set the current count of the counting channel').setRequired(true))
-        .setDefaultPermission(false),
+        .addIntegerOption(option => option.setName('count').setDescription('Set the current count of the counting channel').setRequired(true)),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()
