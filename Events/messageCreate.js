@@ -61,35 +61,38 @@ module.exports = {
 
             //if leveling enabled
             if (response['data']['leveling']) {
-                userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
-                    "data": {
-                        "id": message.author.id,
-                        "guild_id": message.guildId
-                    }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
-                }).catch(async function () {
-                    await axios.post('http://127.0.0.1:8000/leveling/user/', {
-                        "id": message.author.id,
-                        "guild_id": message.guildId
-                    }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
-                });
+                if (!message.author.bot) {
+                    userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
+                        "data": {
+                            "id": message.author.id,
+                            "guild_id": message.guildId
+                        }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                    }).catch(async function () {
+                        await axios.post('http://127.0.0.1:8000/leveling/user/', {
+                            "id": message.author.id,
+                            "guild_id": message.guildId
+                        }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                    });
 
-                userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
-                    "data": {
-                        "id": message.author.id,
-                        "guild_id": message.guildId
-                    }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
-                });
+                    userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
+                        "data": {
+                            "id": message.author.id,
+                            "guild_id": message.guildId
+                        }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                    });
 
-                if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
-                    oldxp = userdata['data']['xp'];
-                    awardedxp = Math.floor(Math.random() * (10) + 15);
-                    newxp = oldxp + awardedxp;
+                    if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
+                        oldxp = userdata['data']['xp'];
+                        awardedxp = Math.floor(Math.random() * (10) + 15);
+                        newxp = oldxp + awardedxp;
 
-                    axios.put('http://127.0.0.1:8000/leveling/user/', {
-                        "id": message.author.id,
-                        "guild_id": message.guildId,
-                        "xp": newxp
-                    }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                        await axios.put('http://127.0.0.1:8000/leveling/user/', {
+                            "id": message.author.id,
+                            "guild_id": message.guildId,
+                            "xp": newxp
+                        }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                    }
+                    ;
                 };
             };
         };
