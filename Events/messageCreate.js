@@ -9,7 +9,7 @@ module.exports = {
             response = await axios.get('http://127.0.0.1:8000/management/', {
                 "data": {"id": message.guildId},
                 auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
-            })
+            });
 
             if (response['data']['counting']) {
 
@@ -50,14 +50,10 @@ module.exports = {
                         message.delete();
                         if (!message.author.bot) {
                             message.author.send("Come on, you gotta send a number");
-                        }
-                        ;
-                    }
-                    ;
-                }
-                ;
-            }
-            ;
+                        };
+                    };
+                };
+            };
 
             //if leveling enabled
             if (response['data']['leveling']) {
@@ -81,9 +77,17 @@ module.exports = {
                         }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
                     });
 
-                    if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
+                    //UPDATE TIME AFTER DONE TESTING
+                    if (Date.now() - Date.parse(userdata['data']['last_message']) > 1) {
+
+                        guildlevelingdata = await axios.get('http://127.0.0.1:8000/leveling/', {
+                            "data": {
+                                "id": message.guildId,
+                            }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                        });
+
                         oldxp = userdata['data']['xp'];
-                        awardedxp = Math.floor(Math.random() * (10) + 15);
+                        awardedxp = Math.floor((Math.random() * (10) + 15)*guildlevelingdata['data']['global_boost']);
                         newxp = oldxp + awardedxp;
 
                         await axios.put('http://127.0.0.1:8000/leveling/user/', {
@@ -91,10 +95,25 @@ module.exports = {
                             "guild_id": message.guildId,
                             "xp": newxp
                         }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
-                    }
-                    ;
+
+                        if (oldxp > 315616) {
+                            oldlevel = Math.floor((oldxp + 684383)/20000);
+                        } else {
+                            oldlevel = Math.floor(Math.sqrt(oldxp) * 0.089);
+                        };
+
+                        if (newxp > 315616) {
+                            newlevel = Math.floor((newxp + 684383)/20000);
+                        } else {
+                            newlevel = Math.floor(Math.sqrt(newxp) * 0.089);
+                        };
+
+                        if (oldlevel != newlevel) {
+                            message.guild.channels.fetch(guildlevelingdata['data']['levelupchannel']).then(channel => channel.send(`:tada: Congratulations <@${message.author.id}> on reaching level ${newlevel}`)).catch(function () {message.channel.send(`:tada: Congratulations <@${message.author.id}> on reaching level ${newlevel}`)});
+                        };
+                    };
                 };
             };
         };
     },
-}
+};
