@@ -10,7 +10,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        response = await axios.get('http://127.0.0.1:8000/management/', {
+        response = await axios.get('https://api.mumbobot.xyz/management/', {
             "data": {"id": interaction.guildId},
             auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
         });
@@ -28,11 +28,11 @@ module.exports = {
 
             setEmbed.setTitle(`Data Migrated. Due to changes in the leveling algorithms, level ranks are not imported and will need to be readded manually.`);
 
-            await axios.get('http://127.0.0.1:8000/management/migrate/', {
+            await axios.get('https://api.mumbobot.xyz/management/migrate/', {
                 "data": {"id": interaction.guildId},
                 auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
             }).catch(function () {
-                setEmbed.setTitle(`An error occured while migrating. Either this server has already been migrated or the old bot didn't have any data for this server.`);
+                setEmbed.setTitle(`An error occured while migrating. Either this server has already been migrated or the old bot didn't have any data for this server.  If you have any questions you can contact leep#4160`);
             });
 
             await interaction.editReply({embeds: [setEmbed]});
