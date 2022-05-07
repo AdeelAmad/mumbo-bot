@@ -78,7 +78,7 @@ module.exports = {
                     });
 
                     //UPDATE TIME AFTER DONE TESTING
-                    if (Date.now() - Date.parse(userdata['data']['last_message']) > 1) {
+                    if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
 
                         guildlevelingdata = await axios.get('http://127.0.0.1:8000/leveling/', {
                             "data": {
