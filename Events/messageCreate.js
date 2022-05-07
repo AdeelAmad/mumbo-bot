@@ -111,6 +111,27 @@ module.exports = {
                         if (oldlevel != newlevel) {
                             message.guild.channels.fetch(guildlevelingdata['data']['levelupchannel']).then(channel => channel.send(`:tada: Congratulations <@${message.author.id}> on reaching level ${newlevel}`)).catch(function () {message.channel.send(`:tada: Congratulations <@${message.author.id}> on reaching level ${newlevel}`)});
                         };
+
+                        ranks = await axios.get('http://127.0.0.1:8000/leveling/rankrewards/', {
+                            "data": {
+                                "guild_id": message.guildId,
+                            }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                        });
+
+                        for (const [key, value] of Object.entries(ranks['data'])) {
+
+                            // Set User XP
+                            rankdata = value;
+
+                            // Detemine Ranks To Be Given
+                            if (newlevel >= rankdata['level']) {
+                                // Give Rank
+                                message.member.roles.add(rankdata['role_id']).catch(function () {return;});
+                            } else if (newlevel < rankdata['level']) {
+                                // Remove Rank
+                                message.member.roles.remove(rankdata['role_id']).catch(function () {return;});
+                            };
+                        };
                     };
                 };
             };
