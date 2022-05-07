@@ -4,14 +4,14 @@ const axios = require('axios')
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('setglobalboost')
+        .setName('setserverboost')
         .setDescription('Sets the server wide xp boost')
         .addNumberOption(option => option.setName('boost').setDescription('Set the server wide xp boost').setRequired(true)),
 
     async execute(interaction) {
         const setEmbed = new MessageEmbed()
             .setColor('#ef6459')
-            .setTitle(`Successfully set ${interaction.options.getNumber('boost')} to the global boost.`)
+            .setTitle(`Successfully set ${interaction.options.getNumber('boost')} to the server boost.`)
 
             //Mumbo website link
             .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', URL: 'https://mumbobot.xyz/commands/'})
