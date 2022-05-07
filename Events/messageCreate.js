@@ -116,20 +116,22 @@ module.exports = {
                             "data": {
                                 "guild_id": message.guildId,
                             }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
-                        });
+                        }).catch(function () {return;});
 
-                        for (const [key, value] of Object.entries(ranks['data'])) {
+                        if (ranks) {
+                            for (const [key, value] of Object.entries(ranks['data'])) {
 
-                            // Set User XP
-                            rankdata = value;
+                                // Set User XP
+                                rankdata = value;
 
-                            // Detemine Ranks To Be Given
-                            if (newlevel >= rankdata['level']) {
-                                // Give Rank
-                                message.member.roles.add(rankdata['role_id']).catch(function () {return;});
-                            } else if (newlevel < rankdata['level']) {
-                                // Remove Rank
-                                message.member.roles.remove(rankdata['role_id']).catch(function () {return;});
+                                // Detemine Ranks To Be Given
+                                if (newlevel >= rankdata['level']) {
+                                    // Give Rank
+                                    message.member.roles.add(rankdata['role_id']).catch(function () {return;});
+                                } else if (newlevel < rankdata['level']) {
+                                    // Remove Rank
+                                    message.member.roles.remove(rankdata['role_id']).catch(function () {return;});
+                                };
                             };
                         };
                     };
