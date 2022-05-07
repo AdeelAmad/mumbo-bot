@@ -44,12 +44,10 @@ module.exports = {
                 const subscription = connection.subscribe(player);
 
                 if (!guildsettings['data']['afkmusic']) {
-                    console.log(connection.destroy());
+                    connection.destroy();
                 };
-                console.log(`Created AFK connection for ${guild[0]}`);
             };
         };
-
         console.log(`Ready! Logged in as ${client.user.tag}`);
     },
 };
