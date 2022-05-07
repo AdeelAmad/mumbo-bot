@@ -26,7 +26,7 @@ module.exports = {
                 })
                 .setTimestamp();
 
-            setEmbed.setTitle(`Data Migrated`);
+            setEmbed.setTitle(`Data Migrated. Due to changes in the leveling algorithms, level ranks are not imported and will need to be readded manually.`);
 
             await axios.get('http://127.0.0.1:8000/management/migrate/', {
                 "data": {"id": interaction.guildId},
