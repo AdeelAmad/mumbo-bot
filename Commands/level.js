@@ -68,7 +68,7 @@ module.exports = {
                     .setTitle(`Level for ${user.tag}`)
 
                     //Mumbo website link
-                    .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', url: 'https://deelio.gitbook.io/mumbo-afk/'})
+                    .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', url: 'https://mumbobot.xyz/commands/'})
                     .addField(`Level ${userlevel}`, `${userxp-userxpforcurrentlevel}/${userxpfornextlevel-userxpforcurrentlevel} | ${Math.floor(((userxp-userxpforcurrentlevel)/(userxpfornextlevel-userxpforcurrentlevel))*100)}%`)
                     .setTimestamp();
 

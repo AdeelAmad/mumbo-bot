@@ -17,7 +17,7 @@ module.exports = {
             .setAuthor({
                 name: 'Mumbo AFK - Docs',
                 iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj',
-                URL: 'https://deelio.gitbook.io/mumbo-afk/'
+                URL: 'https://mumbobot.xyz/commands/'
             })
             .setTimestamp()
 
