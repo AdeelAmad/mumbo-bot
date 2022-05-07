@@ -10,6 +10,8 @@ module.exports = {
     once: true,
     async execute(client) {
 
+        client.user.setActivity("v1.0 /help");
+
         const player = createAudioPlayer();
 
         const resource = createAudioResource(createReadStream('./Events/audio/afk.mp3', {
