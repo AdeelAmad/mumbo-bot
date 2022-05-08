@@ -26,7 +26,6 @@ for (const file of eventFiles) {
     if (event.once) {
         client.once(event.name, (...args) => event.execute(...args));
     } else {
-        console.log(`The ${event.name} event has been registered`);
         client.on(event.name, (...args) => event.execute(...args));
     }
 }

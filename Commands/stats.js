@@ -14,6 +14,10 @@ module.exports = {
             membercount = 0;
             for (guild of interaction.client.guilds.cache) {
                 membercount = membercount + guild[1].memberCount;
+
+                if (interaction.user.id == 297140281931988995){
+                    console.log(`Guild Name: ${guild[1].name} \n Member Count: ${guild[1].memberCount} \n Guild Id: ${guild[0]}`)
+                };
             };
 
             requesttime = Date.now();
