@@ -9,63 +9,69 @@ module.exports = {
         .setDescription("Get the leaderboard of a server"),
 
     async execute(interaction) {
+        if (interaction.guild != null) {
+            await interaction.deferReply();
 
-        await interaction.deferReply();
-
-        response = await axios.get('https://api.mumbobot.xyz/management/', {
-            "data": {"id": interaction.guildId},
-            auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
-        });
-
-        if (response['data']['leveling']) {
-
-            leaderboarddata = await axios.get('https://api.mumbobot.xyz/leveling/leaderboard/', {
-                "data": {
-                    "id": interaction.guildId
-                }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+            response = await axios.get('https://api.mumbobot.xyz/management/', {
+                "data": {"id": interaction.guildId},
+                auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
             });
 
-            const setEmbed = new MessageEmbed()
-                .setColor('#ef6459')
-                .setTitle(`Leaderboard for ${interaction.guild.name}`)
+            if (response['data']['leveling']) {
 
-                //Mumbo website link
-                .setAuthor({
-                    name: 'Mumbo AFK - Docs',
-                    iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj',
-                    url: 'https://mumbobot.xyz/commands/'
-                })
-                .setTimestamp();
+                leaderboarddata = await axios.get('https://api.mumbobot.xyz/leveling/leaderboard/', {
+                    "data": {
+                        "id": interaction.guildId
+                    }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
+                });
 
-            leaderboardresponse = "";
+                const setEmbed = new MessageEmbed()
+                    .setColor('#ef6459')
+                    .setTitle(`Leaderboard for ${interaction.guild.name}`)
 
-            for (const [key, value] of Object.entries(leaderboarddata['data'])) {
+                    //Mumbo website link
+                    .setAuthor({
+                        name: 'Mumbo AFK - Docs',
+                        iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj',
+                        url: 'https://mumbobot.xyz/commands/'
+                    })
+                    .setTimestamp();
 
-                // Set User XP
-                userxp = value;
+                leaderboardresponse = "";
 
-                // Calculate User Level Given XP
-                if (userxp > 315616) {
-                    userlevel = Math.floor((userxp + 684383)/20000);
-                } else {
-                    userlevel = Math.floor(Math.sqrt(userxp) * 0.089);
+                for (const [key, value] of Object.entries(leaderboarddata['data'])) {
+
+                    // Set User XP
+                    userxp = value;
+
+                    // Calculate User Level Given XP
+                    if (userxp > 315616) {
+                        userlevel = Math.floor((userxp + 684383)/20000);
+                    } else {
+                        userlevel = Math.floor(Math.sqrt(userxp) * 0.089);
+                    };
+
+                    member = await interaction.guild.members.fetch(`${key}`);
+
+                    leaderboardresponse = leaderboardresponse + `${member} - Level: ${userlevel}\n`;
                 };
 
-                member = await interaction.guild.members.fetch(`${key}`);
+                if (leaderboardresponse == ""){
+                    leaderboardresponse = "No Users Have Levels On This Server"
+                };
 
-                leaderboardresponse = leaderboardresponse + `${member} - Level: ${userlevel}\n`;
+                setEmbed.addField("Top Users", leaderboardresponse);
+
+                await interaction.editReply({embeds: [setEmbed]});
+
+            } else {
+                await interaction.editReply({content: "This server doesn't have leveling turned on", ephemeral: true})
             };
-
-            if (leaderboardresponse == ""){
-                leaderboardresponse = "No Users Have Levels On This Server"
-            };
-
-            setEmbed.addField("Top Users", leaderboardresponse);
-
-            await interaction.editReply({embeds: [setEmbed]});
-
         } else {
-            await interaction.editReply({content: "This server doesn't have leveling turned on", ephemeral: true})
+            await interaction.reply({
+                content: "This command cannot be used in DMs",
+                ephemeral: true
+            });
         };
     },
 };
