@@ -14,14 +14,14 @@ module.exports = {
 
         const player = createAudioPlayer();
 
-        const resource = createAudioResource(createReadStream('./Events/audio/afk.mp3', {
+        const resource = createAudioResource(createReadStream('./events/audio/afk.mp3', {
             inputType: StreamType.OggOpus,
         }));
 
         player.play(resource);
 
         player.on('idle', () => {
-            const resource = createAudioResource(createReadStream('./Events/audio/afk.mp3', {
+            const resource = createAudioResource(createReadStream('./events/audio/afk.mp3', {
                 inputType: StreamType.OggOpus,
             }));
             player.play(resource);
@@ -30,7 +30,7 @@ module.exports = {
 
         for (guild of client.guilds.cache) {
 
-            guildsettings = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+            guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
 
             if (guild[1].afkChannelId != null) {
                 const connection = joinVoiceChannel({

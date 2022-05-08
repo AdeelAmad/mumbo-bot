@@ -18,9 +18,9 @@ module.exports = {
             .setTimestamp()
 
         if (interaction.member.permissions.has('ADMINISTRATOR')) {
-            const response = await axios.get('http://127.0.0.1:8000/counting/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+            const response = await axios.get('https://api.mumbobot.xyz/counting/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-            axios.put('http://127.0.0.1:8000/counting/', {
+            axios.put('https://api.mumbobot.xyz/counting/', {
                 "id": interaction.guildId,
                 "channel": interaction.options.getChannel('channel')['id'],
                 "last_count": response['data']['last_count'],

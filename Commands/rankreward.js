@@ -24,7 +24,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        response = await axios.get('http://127.0.0.1:8000/management/', {
+        response = await axios.get('https://api.mumbobot.xyz/management/', {
             "data": {"id": interaction.guildId},
             auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
         });
@@ -47,7 +47,7 @@ module.exports = {
                     member = await interaction.guild.members.fetch('744992005158862939');
 
                     if (interaction.guild.roles.comparePositions(member.roles.highest, interaction.options.getRole('role')) > 0) {
-                        await axios.post('http://127.0.0.1:8000/leveling/rankrewards/', {
+                        await axios.post('https://api.mumbobot.xyz/leveling/rankrewards/', {
                             "guild_id": interaction.guildId,
                             "role_id": interaction.options.getRole('role').id,
                             "level": interaction.options.getInteger('level')
@@ -60,7 +60,7 @@ module.exports = {
 
                 } else if (interaction.options.getSubcommand() === 'remove') {
                     setEmbed.setTitle(`Successfully removed ${interaction.options.getRole('role').name} as a reward.`)
-                    await axios.delete('http://127.0.0.1:8000/leveling/rankrewards/', {
+                    await axios.delete('https://api.mumbobot.xyz/leveling/rankrewards/', {
                         "data": {
                             "role_id": interaction.options.getRole('role').id
                         },

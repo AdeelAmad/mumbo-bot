@@ -12,7 +12,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        response = await axios.get('http://127.0.0.1:8000/management/', {
+        response = await axios.get('https://api.mumbobot.xyz/management/', {
             "data": {"id": interaction.guildId},
             auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
         });
@@ -26,12 +26,12 @@ module.exports = {
             };
             if (!user.bot) {
 
-                await axios.post('http://127.0.0.1:8000/leveling/user/', {
+                await axios.post('https://api.mumbobot.xyz/leveling/user/', {
                     "id": user.id,
                     "guild_id": interaction.guildId
                 }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function () {return;});
 
-                userdata = await axios.get('http://127.0.0.1:8000/leveling/user/', {
+                userdata = await axios.get('https://api.mumbobot.xyz/leveling/user/', {
                     "data": {
                         "id": user.id,
                         "guild_id": interaction.guildId

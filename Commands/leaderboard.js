@@ -12,14 +12,14 @@ module.exports = {
 
         await interaction.deferReply();
 
-        response = await axios.get('http://127.0.0.1:8000/management/', {
+        response = await axios.get('https://api.mumbobot.xyz/management/', {
             "data": {"id": interaction.guildId},
             auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
         });
 
         if (response['data']['leveling']) {
 
-            leaderboarddata = await axios.get('http://127.0.0.1:8000/leveling/leaderboard/', {
+            leaderboarddata = await axios.get('https://api.mumbobot.xyz/leveling/leaderboard/', {
                 "data": {
                     "id": interaction.guildId
                 }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}

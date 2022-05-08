@@ -20,7 +20,7 @@ module.exports = {
                 .setTimestamp()
 
             id = interaction.member.id;
-            response = await axios.get('http://127.0.0.1:8000/management/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+            response = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
             function determineColor (module) {
                 if (response['data'][module] === true) {
