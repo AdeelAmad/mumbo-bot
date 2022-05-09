@@ -3,11 +3,26 @@ const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const {createReadStream} = require("node:fs");
 const { createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
+const Sentry = require("@sentry/node");
+const Tracing = require("@sentry/tracing");
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
 const username = "bot";
 const password = "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ";
+
+
+Sentry.init({
+  dsn: "https://36d42ebd71e147fca3dfd661f4015daa@o1237600.ingest.sentry.io/6387936",
+  integrations: [
+    // enable HTTP calls tracing
+    new Sentry.Integrations.Http({ tracing: true }),
+  ],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
 
 client.commands = new Collection();
 

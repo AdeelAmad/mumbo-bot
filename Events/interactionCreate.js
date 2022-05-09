@@ -8,7 +8,7 @@ module.exports = {
         if (!command) return;
 
         try {
-            console.log(`${interaction.user.tag} in #${interaction.guild.name} triggered ${interaction.commandName}.`);
+            console.log(`${interaction.user.tag} in ${interaction.guild} triggered ${interaction.commandName}.`);
             await command.execute(interaction);
         } catch (error) {
             console.error(error);

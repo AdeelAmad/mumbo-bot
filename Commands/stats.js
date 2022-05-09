@@ -8,7 +8,6 @@ module.exports = {
         .setDescription('Bot stats and uptime'),
 
     async execute(interaction) {
-
         if (interaction.guild != null) {
 
             membercount = 0;
