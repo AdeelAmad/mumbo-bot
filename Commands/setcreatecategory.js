@@ -20,16 +20,21 @@ module.exports = {
                 .setTimestamp()
 
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
-                const response = await axios.get('https://api.mumbobot.xyz/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-                axios.put('https://api.mumbobot.xyz/voicechannels/', {
-                    "id": interaction.guildId,
-                    "channel_id": response['data']['channel_id'],
-                    "category": interaction.options.getChannel('category')['id'],
-                    "bitrate": response['data']['bitrate']
-                }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+                if (interaction.options.getChannel('category').type == "GUILD_CATEGORY") {
+                    const response = await axios.get('https://api.mumbobot.xyz/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-                await interaction.reply({embeds: [setEmbed]});
+                    axios.put('https://api.mumbobot.xyz/voicechannels/', {
+                        "id": interaction.guildId,
+                        "channel_id": response['data']['channel_id'],
+                        "category": interaction.options.getChannel('category')['id'],
+                        "bitrate": response['data']['bitrate']
+                    }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+
+                    await interaction.reply({embeds: [setEmbed]});
+                } else {
+                    await interaction.reply({content: "That isn't a category silly!", ephemeral: true});
+                };
             } else {
                 await interaction.reply({content: "You do not have the permissions to run this command. Please talk to and admin if you believe this is a mistake", ephemeral: true});
             }
