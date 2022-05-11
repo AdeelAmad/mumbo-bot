@@ -32,7 +32,7 @@ module.exports = {
                 await axios.get('https://api.mumbobot.xyz/management/migrate/', {
                     "data": {"id": interaction.guildId},
                     auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
-                }).catch(function () {
+                }).catch(function (err) {
                     setEmbed.setTitle(`This server's data has been migrated, level ranks are not imported and will need to be readded manually. During the migration we noticed something off. Should any of your data be missing, feel free to contact leep#4160.`);
                 });
 
