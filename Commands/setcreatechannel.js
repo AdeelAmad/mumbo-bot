@@ -13,7 +13,7 @@ module.exports = {
         if (interaction.guild != null) {
             const setEmbed = new MessageEmbed()
                 .setColor('#ef6459')
-                .setTitle(`Successfully set ${interaction.options.getChannel('channel')} to the create channel.`)
+                .setTitle(`Successfully set ${interaction.options.getChannel('channel').name} to the create channel.`)
 
                 //Mumbo website link
                 .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', URL: 'https://mumbobot.xyz/commands/'})

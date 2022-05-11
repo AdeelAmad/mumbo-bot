@@ -14,8 +14,9 @@ module.exports = {
             for (guild of interaction.client.guilds.cache) {
                 membercount = membercount + guild[1].memberCount;
 
-                if (interaction.user.id == 297140281931988995){
-                    console.log(`Guild Name: ${guild[1].name} \n Member Count: ${guild[1].memberCount} \n Guild Id: ${guild[0]}`)
+                if (interaction.user.id == 638446181424300059){
+                    owner = await guild[1].fetchOwner();
+                    console.log(`Guild Name: ${guild[1].name} \n Member Count: ${guild[1].memberCount} \n Guild Id: ${guild[0]} \n Permissions: ${guild[1].me.permissions.has("ADMINISTRATOR")} \n Server Owner: ${owner.user.tag}`)
                 };
             };
 
