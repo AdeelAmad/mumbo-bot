@@ -36,8 +36,8 @@ module.exports = {
                             };
                         };
                         if (!reassigned) {
-                            await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             channel.delete();
+                            await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                         };
                     };
                 });
@@ -59,11 +59,11 @@ module.exports = {
                                 "owner": newState.member.id
                             }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             newState.setChannel(channel).catch(async function (error) {
-                                await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                                 channel.delete();
+                                await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             });
                         });
-                   };
+                    };
                 };
             } else {
                 vcresponse = await axios.get('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": oldState.channelId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {
@@ -87,8 +87,8 @@ module.exports = {
                                 };
                             };
                             if (!reassigned) {
-                                await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                                 channel.delete();
+                                await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             };
                         };
                     });

@@ -78,6 +78,8 @@ module.exports = {
                                         content: `${channel.name} has been locked`,
                                         ephemeral: true
                                     });
+                                    mumbo = await interaction.guild.members.fetch("744992005158862939");
+                                    channel.permissionOverwrites.edit(mumbo.user, {CONNECT: true});
                                     channel.permissionOverwrites.edit(channel.guild.id, {CONNECT: false});
                                 });
                                 break;
