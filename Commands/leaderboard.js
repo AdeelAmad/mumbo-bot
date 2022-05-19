@@ -51,7 +51,9 @@ module.exports = {
                         userlevel = Math.floor(Math.sqrt(userxp) * 0.089);
                     };
 
-                    member = await interaction.guild.members.fetch(`${key}`);
+                    member = await interaction.guild.members.fetch(`${key}`).catch(function () {
+                        return "<UNKNOWN>";
+                    });
 
                     leaderboardresponse = leaderboardresponse + `${member} - Level: ${userlevel}\n`;
                 };
