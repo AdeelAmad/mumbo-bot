@@ -5,12 +5,18 @@ const {createReadStream} = require("node:fs");
 const { createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
+const { AutoPoster } = require('topgg-autoposter')
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
 const username = "bot";
 const password = "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ";
 
+const ap = AutoPoster('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0NDk5MjAwNTE1ODg2MjkzOSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjUzMjc3MzE2fQ.Vt1p0W9zWl2R1nbmg0PPORPhZCb-SxyQ66hPVIbXqsg', client)
+
+ap.on('posted', () => {
+    console.log('Posted stats to Top.gg!')
+})
 
 Sentry.init({
   dsn: "https://36d42ebd71e147fca3dfd661f4015daa@o1237600.ingest.sentry.io/6387936",
