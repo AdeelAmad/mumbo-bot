@@ -30,7 +30,7 @@ module.exports = {
 
         for (guild of client.guilds.cache) {
 
-            guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function () {
+            guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(async function () {
                 await axios.post('https://api.mumbobot.xyz/management/', {"id": guild[0]}, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) { return; });
             });
 
