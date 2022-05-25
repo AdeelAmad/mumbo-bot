@@ -10,7 +10,7 @@ module.exports = {
     once: true,
     async execute(client) {
 
-        client.user.setActivity("v1.0.1 /help");
+        client.user.setActivity("v1.0.2 /help");
 
         const player = createAudioPlayer();
 
@@ -30,7 +30,9 @@ module.exports = {
 
         for (guild of client.guilds.cache) {
 
-            guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+            guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function () {
+                await axios.post('https://api.mumbobot.xyz/management/', {"id": guild[0]}, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) { return; });
+            });
 
             if (guild[1].afkChannelId != null) {
                 const connection = joinVoiceChannel({
