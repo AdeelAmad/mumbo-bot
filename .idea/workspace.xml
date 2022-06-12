@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6feab43d-09a3-4a5d-ac80-d9d331ec33b1" name="Changes" comment="Fixed labels in disable.js. Added setcountingchannel.js. Does not function in back end yet. Added permission check that will only allow admins to run restricted commands. Additionally warns users if they don't have the correct permission and will send an ephemeral message.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/ranks.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/ranks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/ready.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/help.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +126,9 @@
       <workItem from="1652936597395" duration="141000" />
       <workItem from="1653277133265" duration="272000" />
       <workItem from="1653443028444" duration="1333000" />
-      <workItem from="1653444969856" duration="305000" />
+      <workItem from="1653444969856" duration="449000" />
+      <workItem from="1653523206579" duration="783000" />
+      <workItem from="1655055654553" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command.">
       <created>1637215447120</created>
