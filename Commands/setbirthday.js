@@ -10,8 +10,8 @@ module.exports = {
             option.setName('month')
                 .setDescription('The month you were born in')
                 .setRequired(true)
-                .addChoices({name: 'January', value: 'jan'}, {name: 'February', value: 'feb'}, {name: 'March', value: 'mar'}, {name: 'April', value: 'apr'}, {name: 'May', value: 'may'}, {name: 'June', value: 'jun'
-                }, {name: 'July', value: 'jul'}, {name: 'August', value: 'aug'}, {name: 'September', value: 'sep'}, {name: 'October', value: 'oct'}, {name: 'November', value: 'nov'}, {name: 'December', value: 'dec'}))
+                .addChoices({name: 'January', value: '1'}, {name: 'February', value: '2'}, {name: 'March', value: '3'}, {name: 'April', value: '4'}, {name: 'May', value: '5'}, {name: 'June', value: '6'
+                }, {name: 'July', value: '7'}, {name: 'August', value: '8'}, {name: 'September', value: '9'}, {name: 'October', value: '10'}, {name: 'November', value: '11'}, {name: 'December', value: '12'}))
         .addIntegerOption(option => option.setName("day").setDescription('The day you were born on').setRequired(true)),
 
     async execute(interaction) {
@@ -27,14 +27,15 @@ module.exports = {
             })
             .setTimestamp()
 
-        // const response = await axios.get('https://api.mumbobot.xyz/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+        await axios.post('https://api.mumbobot.xyz/users/birthday/', {
+            "user_id": interaction.user.id}, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function () {return;});
 
-        // axios.put('https://api.mumbobot.xyz/voicechannels/', {
-        //     "id": interaction.guildId,
-        //     "channel_id": response['data']['channel_id'],
-        //     "category": response['data']['category'],
-        //     "bitrate": interaction.options.getInteger('bitrate')
-        // }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+
+        axios.put('https://api.mumbobot.xyz/users/birthday/', {
+            "user_id": interaction.user.id,
+            "month": interaction.options.getString('month'),
+            "day": interaction.options.getInteger('day')
+        }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
 
         await interaction.reply({embeds: [setEmbed]});
 
