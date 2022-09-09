@@ -1,4 +1,5 @@
-const axios = require('axios')
+const axios = require('axios');
+const Sentry = require("@sentry/node");
 
 module.exports = {
     name: 'messageCreate',
@@ -77,7 +78,6 @@ module.exports = {
                         }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
                     });
 
-                    //UPDATE TIME AFTER DONE TESTING
                     if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
 
                         guildlevelingdata = await axios.get('https://api.mumbobot.xyz/leveling/', {
@@ -87,13 +87,15 @@ module.exports = {
                         });
 
                         oldxp = userdata['data']['xp'];
-                        awardedxp = Math.floor((Math.random() * (10) + 15)*guildlevelingdata['data']['global_boost']);
+                        awardedxp = Math.floor((Math.random() * (11) + 15)*guildlevelingdata['data']['global_boost']);
                         newxp = oldxp + awardedxp;
+
+                        Sentry.captureMessage(`User: ${message.author.id} Old XP: ${oldxp} Awarded XP: ${awardedxp} New XP: ${newxp}`);
 
                         await axios.put('https://api.mumbobot.xyz/leveling/user/', {
                             "id": message.author.id,
                             "guild_id": message.guildId,
-                            "xp": newxp
+                            "xp": oldxp + awardedxp
                         }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
                         if (oldxp > 315616) {

@@ -46,12 +46,7 @@ module.exports = {
                             new MessageButton()
                                 .setCustomId('unlock')
                                 .setLabel('Unlock Channel')
-                                .setStyle("SUCCESS"),
-                            new MessageButton()
-                                .setCustomId('nomic')
-                                .setLabel('Create No Mic')
-                                .setStyle("SECONDARY")
-                                .setDisabled(true)
+                                .setStyle("SUCCESS")
                         );
 
                     await interaction.reply({embeds: [setEmbed], components: [controlrow]});
@@ -104,12 +99,7 @@ module.exports = {
                                 new MessageButton()
                                     .setCustomId('unlock')
                                     .setLabel('Unlock Channel')
-                                    .setStyle("SUCCESS"),
-                                new MessageButton()
-                                    .setCustomId('nomic')
-                                    .setLabel('Create No Mic')
-                                    .setStyle("SECONDARY")
-                                    .setDisabled(true),
+                                    .setStyle("SUCCESS")
                             );
                         i.update({embeds: [setEmbed], components: [controlnewrow]}).catch(function (error) {
                             return;

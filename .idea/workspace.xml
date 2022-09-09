@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6feab43d-09a3-4a5d-ac80-d9d331ec33b1" name="Changes" comment="Fixed labels in disable.js. Added setcountingchannel.js. Does not function in back end yet. Added permission check that will only allow admins to run restricted commands. Additionally warns users if they don't have the correct permission and will send an ephemeral message.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/controls.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/controls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/setbirthday.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setbirthday.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/messageCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/messageCreate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +133,13 @@
       <workItem from="1655055654553" duration="10000" />
       <workItem from="1656477323951" duration="1840000" />
       <workItem from="1659671079429" duration="786000" />
-      <workItem from="1661297778653" duration="3927000" />
+      <workItem from="1661297778653" duration="3950000" />
+      <workItem from="1662002356836" duration="925000" />
+      <workItem from="1662003623961" duration="1718000" />
+      <workItem from="1662526364750" duration="267000" />
+      <workItem from="1662526730231" duration="73000" />
+      <workItem from="1662526837710" duration="37000" />
+      <workItem from="1662597297322" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command.">
       <created>1637215447120</created>
