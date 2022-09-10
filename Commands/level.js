@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -64,13 +64,13 @@ module.exports = {
                         userxpforcurrentlevel = Math.floor(Math.pow((userlevel), 2)/Math.pow(0.089, 2));
                     };
 
-                    const setEmbed = new MessageEmbed()
+                    const setEmbed = new EmbedBuilder()
                         .setColor('#ef6459')
                         .setTitle(`Level for ${user.tag}`)
 
                         //Mumbo website link
                         .setAuthor({name: 'Mumbo AFK - Docs', iconURL: 'https://yt3.ggpht.com/ytc/AAUvwni0ozzH6cUECFiETyHuOudWQieak6Wf1Y8su3LBlg=s900-c-k-c0x00ffffff-no-rj', url: 'https://mumbobot.xyz/commands/'})
-                        .addField(`Level ${userlevel}`, `${userxp-userxpforcurrentlevel}/${userxpfornextlevel-userxpforcurrentlevel} | ${Math.floor(((userxp-userxpforcurrentlevel)/(userxpfornextlevel-userxpforcurrentlevel))*100)}%`)
+                        .addFields([{name: `Level ${userlevel}`, value: `${userxp-userxpforcurrentlevel}/${userxpfornextlevel-userxpforcurrentlevel} | ${Math.floor(((userxp-userxpforcurrentlevel)/(userxpfornextlevel-userxpforcurrentlevel))*100)}%`}])
                         .setTimestamp();
 
 

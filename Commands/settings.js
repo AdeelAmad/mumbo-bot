@@ -1,6 +1,6 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
-const {MessageActionRow, MessageButton} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
+const {ActionRowBuilder, ButtonBuilder} = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         if (interaction.guild != null) {
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
 
-                const setEmbed = new MessageEmbed()
+                const setEmbed = new EmbedBuilder()
                     .setColor('#ef6459')
                     .setTitle(`Settings panel v1.0`)
 
@@ -26,27 +26,27 @@ module.exports = {
 
                 function determineColor (module) {
                     if (response['data'][module] === true) {
-                        return "SUCCESS";
+                        return 3;
                     } else {
-                        return "DANGER";
+                        return 4;
                     }
                 }
 
-                const row = new MessageActionRow()
+                const row = new ActionRowBuilder()
                     .addComponents(
-                        new MessageButton()
+                        new ButtonBuilder()
                             .setCustomId('counting')
                             .setLabel('Counting')
                             .setStyle(determineColor('counting')),
-                        new MessageButton()
+                        new ButtonBuilder()
                             .setCustomId('voicechannel')
                             .setLabel('Voice Channels')
                             .setStyle(determineColor('voicechannel')),
-                        new MessageButton()
+                        new ButtonBuilder()
                             .setCustomId('leveling')
                             .setLabel('Leveling')
                             .setStyle(determineColor('leveling')),
-                        new MessageButton()
+                        new ButtonBuilder()
                             .setCustomId('afkmusic')
                             .setLabel('AFK Music')
                             .setStyle(determineColor('afkmusic')),
@@ -99,27 +99,27 @@ module.exports = {
 
                     function determineColor (module) {
                         if (response['data'][module] === true) {
-                            return "SUCCESS";
+                            return 3;
                         } else {
-                            return "DANGER";
+                            return 4;
                         }
                     }
 
-                    const newrow = new MessageActionRow()
+                    const newrow = new ActionRowBuilder()
                         .addComponents(
-                            new MessageButton()
+                            new ButtonBuilder()
                                 .setCustomId('counting')
                                 .setLabel('Counting')
                                 .setStyle(determineColor('counting')),
-                            new MessageButton()
+                            new ButtonBuilder()
                                 .setCustomId('voicechannel')
                                 .setLabel('Voice Channels')
                                 .setStyle(determineColor('voicechannel')),
-                            new MessageButton()
+                            new ButtonBuilder()
                                 .setCustomId('leveling')
                                 .setLabel('Leveling')
                                 .setStyle(determineColor('leveling')),
-                            new MessageButton()
+                            new ButtonBuilder()
                                 .setCustomId('afkmusic')
                                 .setLabel('AFK Music')
                                 .setStyle(determineColor('afkmusic')),

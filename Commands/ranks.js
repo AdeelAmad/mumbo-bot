@@ -1,7 +1,7 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 const prettyMilliseconds = require("pretty-ms");
 const axios = require('axios')
-const {MessageEmbed} = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -18,7 +18,7 @@ module.exports = {
             });
 
             if (response['data']['leveling']) {
-                const setEmbed = new MessageEmbed()
+                const setEmbed = new EmbedBuilder()
                     .setColor('#ef6459')
                     //Mumbo website link
                     .setAuthor({
@@ -48,7 +48,7 @@ module.exports = {
                     rankresponse = "There are no rank rewards in this server";
                 };
 
-                setEmbed.addField("Ranks:", rankresponse);
+                setEmbed.addFields([{name: "Ranks:", value: rankresponse}]);
 
 
 

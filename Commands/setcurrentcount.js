@@ -1,5 +1,5 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     async execute(interaction) {
 
         if (interaction.guild != null) {
-            const setEmbed = new MessageEmbed()
+            const setEmbed = new EmbedBuilder()
                 .setColor('#ef6459')
                 .setTitle(`Successfully set ${interaction.options.getInteger('count')} to the current count.`)
 

@@ -1,5 +1,5 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const {EmbedBuilder} = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -55,7 +55,7 @@ module.exports = {
                         });
                         //USER LEVEL CHECKING CODE END
 
-                        const setEmbed = new MessageEmbed()
+                        const setEmbed = new EmbedBuilder()
                             .setColor('#ef6459')
                             //Mumbo website link
                             .setAuthor({

@@ -10,7 +10,7 @@ module.exports = {
     once: true,
     async execute(client) {
 
-        client.user.setActivity("v1.0.2 /help");
+        client.user.setActivity("v1.1.0 /help");
 
         const player = createAudioPlayer();
 

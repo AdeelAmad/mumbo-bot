@@ -1,13 +1,13 @@
-const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
+const fs = require('node:fs');
+const path = require('node:path');
+
+const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
 const { token } = require('./config.json');
-const {createReadStream} = require("node:fs");
-const { createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
 const { AutoPoster } = require('topgg-autoposter')
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages] });
 
 const username = "bot";
 const password = "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ";

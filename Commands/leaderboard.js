@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const axios = require('axios')
 'use strict';
 
@@ -25,7 +25,7 @@ module.exports = {
                     }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
                 });
 
-                const setEmbed = new MessageEmbed()
+                const setEmbed = new EmbedBuilder()
                     .setColor('#ef6459')
                     .setTitle(`Leaderboard for ${interaction.guild.name}`)
 
@@ -62,7 +62,7 @@ module.exports = {
                     leaderboardresponse = "No Users Have Levels On This Server"
                 };
 
-                setEmbed.addField("Top Users", leaderboardresponse);
+                setEmbed.addFields([{name: "Top Users", value: leaderboardresponse}]);
 
                 await interaction.editReply({embeds: [setEmbed]});
 

@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { ChannelType } = require('discord.js')
 const { joinVoiceChannel } = require('@discordjs/voice');
 const { getVoiceConnection, generateDependencyReport } = require('@discordjs/voice');
 const { createAudioPlayer, NoSubscriberBehavior, createAudioResource, StreamType  } = require('@discordjs/voice');
@@ -46,8 +47,9 @@ module.exports = {
             if (newState.channelId == guildvcsettings['data']['channel_id']) {
                 if (guildsettings['data']['voicechannel']) {
                     if (!newState.member.user.bot) {
-                        channel = newState.guild.channels.create(`${newState.member.user.username}'s Voice Chat`, {
-                            type: 'GUILD_VOICE',
+                        channel = newState.guild.channels.create({
+                            name: `${newState.member.user.username}'s Voice Chat`,
+                            type: ChannelType.GuildVoice,
                             bitrate: newState.guild.maximumBitrate
                         }).then(async (channel) => {
                             channel.setParent(guildvcsettings['data']['category'].toString()).catch(function (error) {

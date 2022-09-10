@@ -1,5 +1,5 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const {EmbedBuilder, ChannelType} = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     async execute(interaction) {
 
         if (interaction.guild != null) {
-            const setEmbed = new MessageEmbed()
+            const setEmbed = new EmbedBuilder()
                 .setColor('#ef6459')
                 .setTitle(`Successfully set ${interaction.options.getChannel('channel').name} to the level up channel.`)
 
@@ -21,7 +21,7 @@ module.exports = {
 
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
 
-                if (interaction.options.getChannel('channel').type == "GUILD_TEXT") {
+                if (interaction.options.getChannel('channel').type == ChannelType.GuildText) {
                     const response = await axios.get('https://api.mumbobot.xyz/leveling/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
                     axios.put('https://api.mumbobot.xyz/leveling/', {

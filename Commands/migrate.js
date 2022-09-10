@@ -1,6 +1,6 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 const axios = require('axios')
-const {MessageEmbed} = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
             });
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
 
-                const setEmbed = new MessageEmbed()
+                const setEmbed = new EmbedBuilder()
                     .setColor('#ef6459')
                     //Mumbo website link
                     .setAuthor({

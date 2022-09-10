@@ -5,10 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6feab43d-09a3-4a5d-ac80-d9d331ec33b1" name="Changes" comment="Fixed labels in disable.js. Added setcountingchannel.js. Does not function in back end yet. Added permission check that will only allow admins to run restricted commands. Additionally warns users if they don't have the correct permission and will send an ephemeral message.">
+      <change afterPath="$PROJECT_DIR$/Commands/feedback.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/controls.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/controls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setbirthday.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setbirthday.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/messageCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/messageCreate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/dillon.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/dillon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/leaderboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/level.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/level.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/migrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/migrate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/rankreward.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/rankreward.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/ranks.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/ranks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setbirthday.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/birthday.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setcountingchannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcountingchannel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setcreatebitrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatebitrate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setcreatecategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatecategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setcreatechannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatechannel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setcurrentcount.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcurrentcount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setglobalboost.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setglobalboost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/setlevelupchannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setlevelupchannel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/stats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/xp.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/xp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/ready.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/voiceStateUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/voiceStateUpdate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +77,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -140,6 +162,10 @@
       <workItem from="1662526730231" duration="73000" />
       <workItem from="1662526837710" duration="37000" />
       <workItem from="1662597297322" duration="155000" />
+      <workItem from="1662695475443" duration="3374000" />
+      <workItem from="1662700930319" duration="232000" />
+      <workItem from="1662771661117" duration="2222000" />
+      <workItem from="1662788957965" duration="2342000" />
     </task>
     <task id="LOCAL-00001" summary="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command.">
       <created>1637215447120</created>

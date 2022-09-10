@@ -1,6 +1,6 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
-const {MessageActionRow, MessageButton} = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
+const {ActionRowBuilder, ButtonBuilder} = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
 
     async execute(interaction) {
         if (interaction.guild != null) {
-            const setEmbed = new MessageEmbed()
+            const setEmbed = new EmbedBuilder()
                 .setColor('#ef6459')
                 .setTitle(`Control panel v1.0`)
 
@@ -37,16 +37,16 @@ module.exports = {
 
             if (channeldata) {
                 if (channeldata['data']['owner'] == id) {
-                    const controlrow = new MessageActionRow()
+                    const controlrow = new ActionRowBuilder()
                         .addComponents(
-                            new MessageButton()
+                            new ButtonBuilder()
                                 .setCustomId('lock')
                                 .setLabel('Lock Channel')
-                                .setStyle("DANGER"),
-                            new MessageButton()
+                                .setStyle(4),
+                            new ButtonBuilder()
                                 .setCustomId('unlock')
                                 .setLabel('Unlock Channel')
-                                .setStyle("SUCCESS")
+                                .setStyle(3)
                         );
 
                     await interaction.reply({embeds: [setEmbed], components: [controlrow]});
@@ -74,8 +74,8 @@ module.exports = {
                                         ephemeral: true
                                     });
                                     mumbo = await interaction.guild.members.fetch("744992005158862939");
-                                    channel.permissionOverwrites.edit(mumbo.user, {CONNECT: true});
-                                    channel.permissionOverwrites.edit(channel.guild.id, {CONNECT: false});
+                                    channel.permissionOverwrites.edit(mumbo.user, {Connect: true});
+                                    channel.permissionOverwrites.edit(channel.guild.id, {Connect: false});
                                 });
                                 break;
                             case 'unlock':
@@ -84,22 +84,22 @@ module.exports = {
                                         content: `${channel.name} has been unlocked`,
                                         ephemeral: true
                                     });
-                                    channel.permissionOverwrites.edit(channel.guild.id, {CONNECT: null});
+                                    channel.permissionOverwrites.edit(channel.guild.id, {Connect: null});
                                 });
                                 break;
                         }
                         ;
 
-                        const controlnewrow = new MessageActionRow()
+                        const controlnewrow = new ActionRowBuilder()
                             .addComponents(
-                                new MessageButton()
+                                new ButtonBuilder()
                                     .setCustomId('lock')
                                     .setLabel('Lock Channel')
-                                    .setStyle("DANGER"),
-                                new MessageButton()
+                                    .setStyle(4),
+                                new ButtonBuilder()
                                     .setCustomId('unlock')
                                     .setLabel('Unlock Channel')
-                                    .setStyle("SUCCESS")
+                                    .setStyle(3)
                             );
                         i.update({embeds: [setEmbed], components: [controlnewrow]}).catch(function (error) {
                             return;
