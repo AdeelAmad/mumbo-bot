@@ -25,7 +25,7 @@ module.exports = {
             id = interaction.member.id
             channelid = interaction.member.voice.channelId
 
-            channeldata = await axios.get('https://api.mumbobot.xyz/voicechannels/channel/', {
+            channeldata = await axios.get('https://api.agradehost.com/voicechannels/channel/', {
                 "data": {"id": channelid},
                 auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
             }).catch(async function (error) {
@@ -54,7 +54,7 @@ module.exports = {
 
                     const filter = (interaction) => {
                         if ((interaction.user.id === id) && interaction.customId == "lock" || interaction.customId == "unlock") return true;
-                        if (interaction.customId == "counting" || interaction.customId == "leveling" || interaction.customId == "voicechannel" || interaction.customId == "afkmusic") return;
+                        if (interaction.customId == "counting" || interaction.customId == "leveling" || interaction.customId == "voicechannel" || interaction.customId == "afkmusic" || interaction.customId == "waifu") return;
                         return interaction.reply({content: "You cannot use this button", ephemeral: true});
                     };
 

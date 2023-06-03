@@ -26,7 +26,7 @@ module.exports = {
         if (interaction.guild != null) {
             await interaction.deferReply();
 
-            response = await axios.get('https://api.mumbobot.xyz/management/', {
+            response = await axios.get('https://api.agradehost.com/management/', {
                 "data": {"id": interaction.guildId},
                 auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
             });
@@ -40,14 +40,14 @@ module.exports = {
 
                     if (!user.bot) {
 
-                        await axios.post('https://api.mumbobot.xyz/leveling/user/', {
+                        await axios.post('https://api.agradehost.com/leveling/user/', {
                             "id": user.id,
                             "guild_id": interaction.guildId
                         }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function () {
                             return;
                         });
 
-                        userdata = await axios.get('https://api.mumbobot.xyz/leveling/user/', {
+                        userdata = await axios.get('https://api.agradehost.com/leveling/user/', {
                             "data": {
                                 "id": user.id,
                                 "guild_id": interaction.guildId
@@ -66,7 +66,7 @@ module.exports = {
                             .setTimestamp();
 
                         if (interaction.options.getSubcommand() === 'add') {
-                            await axios.put('https://api.mumbobot.xyz/leveling/user/', {
+                            await axios.put('https://api.agradehost.com/leveling/user/', {
                                 "id": user.id,
                                 "guild_id": interaction.guildId,
                                 "xp": userdata['data']['xp']+xp
@@ -74,7 +74,7 @@ module.exports = {
 
                             setEmbed.setTitle(`Added ${xp} XP to ${user.tag}`);
                         } else if (interaction.options.getSubcommand() === 'remove') {
-                            await axios.put('https://api.mumbobot.xyz/leveling/user/', {
+                            await axios.put('https://api.agradehost.com/leveling/user/', {
                                 "id": user.id,
                                 "guild_id": interaction.guildId,
                                 "xp": userdata['data']['xp']-xp

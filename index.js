@@ -7,7 +7,7 @@ const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
 const { AutoPoster } = require('topgg-autoposter')
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent] });
 
 const username = "bot";
 const password = "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ";

@@ -14,14 +14,14 @@ module.exports = {
         // Add components to modal
 
         // Create the text input components
-        const favoriteColorInput = new TextInputBuilder()
+        const subjectInput = new TextInputBuilder()
             .setCustomId('subject')
             // The label is the prompt the user sees for this input
             .setLabel("Subject:")
             // Short means only a single line of text
             .setStyle(TextInputStyle.Short);
 
-        const hobbiesInput = new TextInputBuilder()
+        const feedbackInput = new TextInputBuilder()
             .setCustomId('feedbacktext')
             .setLabel("Feedback:")
             // Paragraph means multiple lines of text.
@@ -29,8 +29,8 @@ module.exports = {
 
         // An action row only holds one text input,
         // so you need one action row per text input.
-        const firstActionRow = new ActionRowBuilder().addComponents(favoriteColorInput);
-        const secondActionRow = new ActionRowBuilder().addComponents(hobbiesInput);
+        const firstActionRow = new ActionRowBuilder().addComponents(subjectInput);
+        const secondActionRow = new ActionRowBuilder().addComponents(feedbackInput);
 
         // Add inputs to the modal
         modal.addComponents(firstActionRow, secondActionRow);

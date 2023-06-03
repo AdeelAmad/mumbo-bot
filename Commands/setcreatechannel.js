@@ -22,9 +22,9 @@ module.exports = {
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
 
                 if (interaction.options.getChannel('channel').type == ChannelType.GuildVoice) {
-                    const response = await axios.get('https://api.mumbobot.xyz/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                    const response = await axios.get('https://api.agradehost.com/voicechannels/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-                    axios.put('https://api.mumbobot.xyz/voicechannels/', {
+                    axios.put('https://api.agradehost.com/voicechannels/', {
                         "id": interaction.guildId,
                         "channel_id": interaction.options.getChannel('channel')['id'],
                         "category": response['data']['category'],

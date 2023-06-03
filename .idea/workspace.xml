@@ -5,32 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6feab43d-09a3-4a5d-ac80-d9d331ec33b1" name="Changes" comment="Fixed labels in disable.js. Added setcountingchannel.js. Does not function in back end yet. Added permission check that will only allow admins to run restricted commands. Additionally warns users if they don't have the correct permission and will send an ephemeral message.">
-      <change afterPath="$PROJECT_DIR$/Commands/feedback.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Commands/levelcontextmenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/birthday.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/controls.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/controls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/dillon.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/dillon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/help.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/leaderboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/level.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/level.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/migrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/migrate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/rankreward.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/rankreward.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/ranks.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/ranks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setbirthday.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/birthday.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setcountingchannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcountingchannel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setcreatebitrate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatebitrate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setcreatecategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatecategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setcreatechannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcreatechannel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setcurrentcount.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setcurrentcount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setglobalboost.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setglobalboost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/setlevelupchannel.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/setlevelupchannel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/feedback.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/stats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands/xp.js" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/xp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/ready.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/voiceStateUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/voiceStateUpdate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/interactionCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Events/interactionCreate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,21 +47,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="16.11.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Events/audio" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Adeel\WebstormProjects\mumbo\Events\audio" />
@@ -91,7 +69,7 @@
       <recent name="C:\Users\Adeel\WebstormProjects\mumbo\Commands" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Bot Run">
+  <component name="RunManager" selected="Node.js.Deploy Commands">
     <configuration name="Bot Run" type="NodeJSConfigurationType" path-to-node="$PROJECT_DIR$/../../../../Program Files/nodejs/node" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -166,6 +144,17 @@
       <workItem from="1662700930319" duration="232000" />
       <workItem from="1662771661117" duration="2222000" />
       <workItem from="1662788957965" duration="2342000" />
+      <workItem from="1662829748413" duration="2277000" />
+      <workItem from="1662864430692" duration="127000" />
+      <workItem from="1662864567601" duration="765000" />
+      <workItem from="1662865463462" duration="364000" />
+      <workItem from="1663003684409" duration="2565000" />
+      <workItem from="1663182808372" duration="612000" />
+      <workItem from="1664074323205" duration="1375000" />
+      <workItem from="1669669889863" duration="215000" />
+      <workItem from="1673841454389" duration="1942000" />
+      <workItem from="1673929901864" duration="24000" />
+      <workItem from="1685771273515" duration="412000" />
     </task>
     <task id="LOCAL-00001" summary="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command.">
       <created>1637215447120</created>
@@ -214,7 +203,6 @@
         <entry key="8cd05bba-8816-4b76-bfcf-224ea08547e7">
           <value>
             <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -233,6 +221,7 @@
                   </entry>
                 </map>
               </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>
@@ -255,7 +244,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added server uptime command as well as the event listener for the voiceStateUpdate. It also scans for if the update is in the AFK channel of the guild. Removed the beep command." />

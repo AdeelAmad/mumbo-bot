@@ -7,7 +7,7 @@ module.exports = {
         // Makes sure message happens in a regular text channel
         if (message.guild != null) {
             //check if the counting module is enabled
-            response = await axios.get('https://api.mumbobot.xyz/management/', {
+            response = await axios.get('https://api.agradehost.com/management/', {
                 "data": {"id": message.guildId},
                 auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
             });
@@ -15,7 +15,7 @@ module.exports = {
             if (response['data']['counting']) {
 
                 // Retrieve all counting related data
-                const response = await axios.get('https://api.mumbobot.xyz/counting/', {
+                const response = await axios.get('https://api.agradehost.com/counting/', {
                     "data": {"id": message.guildId},
                     auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
                 });
@@ -29,7 +29,7 @@ module.exports = {
                         new_count = message.cleanContent;
                         if (last_count + 1 == new_count) {
                             if (last_counter != message.author.id) {
-                                axios.put('https://api.mumbobot.xyz/counting/', {
+                                axios.put('https://api.agradehost.com/counting/', {
                                     "id": message.guildId,
                                     "channel": channel,
                                     "last_count": new_count,
@@ -59,19 +59,19 @@ module.exports = {
             //if leveling enabled
             if (response['data']['leveling']) {
                 if (!message.author.bot) {
-                    userdata = await axios.get('https://api.mumbobot.xyz/leveling/user/', {
+                    userdata = await axios.get('https://api.agradehost.com/leveling/user/', {
                         "data": {
                             "id": message.author.id,
                             "guild_id": message.guildId
                         }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
                     }).catch(async function () {
-                        await axios.post('https://api.mumbobot.xyz/leveling/user/', {
+                        await axios.post('https://api.agradehost.com/leveling/user/', {
                             "id": message.author.id,
                             "guild_id": message.guildId
                         }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                     });
 
-                    userdata = await axios.get('https://api.mumbobot.xyz/leveling/user/', {
+                    userdata = await axios.get('https://api.agradehost.com/leveling/user/', {
                         "data": {
                             "id": message.author.id,
                             "guild_id": message.guildId
@@ -80,7 +80,7 @@ module.exports = {
 
                     if (Date.now() - Date.parse(userdata['data']['last_message']) > 59999) {
 
-                        guildlevelingdata = await axios.get('https://api.mumbobot.xyz/leveling/', {
+                        guildlevelingdata = await axios.get('https://api.agradehost.com/leveling/', {
                             "data": {
                                 "id": message.guildId,
                             }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
@@ -92,7 +92,7 @@ module.exports = {
 
                         Sentry.captureMessage(`User: ${message.author.id} Old XP: ${oldxp} Awarded XP: ${awardedxp} New XP: ${newxp}`);
 
-                        await axios.put('https://api.mumbobot.xyz/leveling/user/', {
+                        await axios.put('https://api.agradehost.com/leveling/user/', {
                             "id": message.author.id,
                             "guild_id": message.guildId,
                             "xp": oldxp + awardedxp
@@ -114,7 +114,7 @@ module.exports = {
                             message.guild.channels.fetch(guildlevelingdata['data']['levelupchannel']).then(channel => channel.send(`:tada: Congratulations <@${message.author.id}> on reaching level ${newlevel}`)).catch(function () {message.channel.send(`:tada: Congratulations <@${message.author.id}> on reaching level ${newlevel}`)});
                         };
 
-                        ranks = await axios.get('https://api.mumbobot.xyz/leveling/rankrewards/', {
+                        ranks = await axios.get('https://api.agradehost.com/leveling/rankrewards/', {
                             "data": {
                                 "guild_id": message.guildId,
                             }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}

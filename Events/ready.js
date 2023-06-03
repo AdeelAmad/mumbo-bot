@@ -30,8 +30,8 @@ module.exports = {
 
         for (guild of client.guilds.cache) {
 
-            guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(async function () {
-                await axios.post('https://api.mumbobot.xyz/management/', {"id": guild[0]}, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) { return; });
+            guildsettings = await axios.get('https://api.agradehost.com/management/', {"data": {"id": guild[0]}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(async function () {
+                await axios.post('https://api.agradehost.com/management/', {"id": guild[0]}, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) { return; });
             });
 
             if (guild[1].afkChannelId != null) {

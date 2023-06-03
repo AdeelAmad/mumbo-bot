@@ -1,15 +1,14 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { ContextMenuCommandBuilder, ApplicationCommandType } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const axios = require('axios')
 
+
 module.exports = {
-    data: new SlashCommandBuilder()
+    data: new ContextMenuCommandBuilder()
         .setName('level')
-        .setDescription("Check a user's level")
-        .addUserOption(option => option.setName('user').setDescription('The user you wish to view the level of').setRequired(false)),
+        .setType(ApplicationCommandType.User),
 
     async execute(interaction) {
-
         if (interaction.guild != null) {
             await interaction.deferReply();
 
@@ -87,5 +86,5 @@ module.exports = {
                 ephemeral: true
             });
         };
-    },
-};
+    }
+}

@@ -12,14 +12,14 @@ module.exports = {
         if (interaction.guild != null) {
             await interaction.deferReply();
 
-            response = await axios.get('https://api.mumbobot.xyz/management/', {
+            response = await axios.get('https://api.agradehost.com/management/', {
                 "data": {"id": interaction.guildId},
                 auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}
             });
 
             if (response['data']['leveling']) {
 
-                leaderboarddata = await axios.get('https://api.mumbobot.xyz/leveling/leaderboard/', {
+                leaderboarddata = await axios.get('https://api.agradehost.com/leveling/leaderboard/', {
                     "data": {
                         "id": interaction.guildId
                     }, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}

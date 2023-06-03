@@ -22,9 +22,9 @@ module.exports = {
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
 
                 if (interaction.options.getChannel('channel').type == ChannelType.GuildText) {
-                    const response = await axios.get('https://api.mumbobot.xyz/counting/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                    const response = await axios.get('https://api.agradehost.com/counting/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-                    axios.put('https://api.mumbobot.xyz/counting/', {
+                    axios.put('https://api.agradehost.com/counting/', {
                         "id": interaction.guildId,
                         "channel": interaction.options.getChannel('channel')['id'],
                         "last_count": response['data']['last_count'],

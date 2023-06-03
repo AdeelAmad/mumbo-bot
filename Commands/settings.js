@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const {EmbedBuilder} = require('discord.js');
-const {ActionRowBuilder, ButtonBuilder} = require('discord.js');
+const {ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const axios = require('axios')
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
                     .setTimestamp()
 
                 id = interaction.member.id;
-                response = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                response = await axios.get('https://api.agradehost.com/management/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
                 function determineColor (module) {
                     if (response['data'][module] === true) {
@@ -50,6 +50,10 @@ module.exports = {
                             .setCustomId('afkmusic')
                             .setLabel('AFK Music')
                             .setStyle(determineColor('afkmusic')),
+                        new ButtonBuilder()
+                            .setCustomId('waifu')
+                            .setLabel('Waifu')
+                            .setStyle(determineColor('waifu'))
                     );
 
 
@@ -58,7 +62,7 @@ module.exports = {
 
 
                 const filter = (interaction) => {
-                    if (interaction.user.id === id && interaction.customId == "counting" || interaction.customId == "leveling" || interaction.customId == "voicechannel" || interaction.customId == "afkmusic") return true;
+                    if (interaction.user.id === id && interaction.customId == "counting" || interaction.customId == "leveling" || interaction.customId == "voicechannel" || interaction.customId == "afkmusic" || interaction.customId == "waifu") return true;
                     if (interaction.customId == "lock" || interaction.customId == "unlock") return;
                     return interaction.reply({content: "You cannot use this button", ephemeral: true});
                 };
@@ -73,6 +77,7 @@ module.exports = {
                     voicechannel = response['data']['voicechannel']
                     leveling = response['data']['leveling']
                     afkmusic = response['data']['afkmusic']
+                    waifu = response['data']['waifu']
 
                     switch (id) {
                         case 'counting':
@@ -86,14 +91,19 @@ module.exports = {
                             break;
                         case 'afkmusic':
                             afkmusic = !response['data']['afkmusic']
+                            break;
+                        case 'waifu':
+                            waifu = !response['data']['waifu']
+                            break;
                     }
 
-                    response = await axios.put('https://api.mumbobot.xyz/management/', {
+                    response = await axios.put('https://api.agradehost.com/management/', {
                         "id": interaction.guildId,
                         "counting": counting,
                         "voicechannel": voicechannel,
                         "leveling": leveling,
                         "afkmusic": afkmusic,
+                        "waifu": waifu,
                         "alert": response['data']['alert']
                     }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {return;})
 
@@ -123,6 +133,10 @@ module.exports = {
                                 .setCustomId('afkmusic')
                                 .setLabel('AFK Music')
                                 .setStyle(determineColor('afkmusic')),
+                            new ButtonBuilder()
+                                .setCustomId('waifu')
+                                .setLabel('Waifu')
+                                .setStyle(determineColor('waifu'))
                         );
 
                     await i.update({embeds: [setEmbed], components: [newrow]}).catch(function (error) {return;});

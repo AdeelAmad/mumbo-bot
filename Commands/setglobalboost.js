@@ -20,9 +20,9 @@ module.exports = {
                 .setTimestamp()
 
             if (interaction.member.permissions.has('ADMINISTRATOR')) {
-                const response = await axios.get('https://api.mumbobot.xyz/leveling/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                const response = await axios.get('https://api.agradehost.com/leveling/', {"data": {"id": interaction.guildId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
 
-                axios.put('https://api.mumbobot.xyz/leveling/', {
+                axios.put('https://api.agradehost.com/leveling/', {
                     "id": interaction.guildId,
                     "global_boost": interaction.options.getNumber('boost'),
                     "levelupchannel": response['data']['levelupchannel'],

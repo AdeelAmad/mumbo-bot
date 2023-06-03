@@ -22,7 +22,7 @@ module.exports = {
 
             requesttime = Date.now();
 
-            statresponse = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": interaction.guild.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).then(function () {
+            statresponse = await axios.get('https://api.agradehost.com/management/', {"data": {"id": interaction.guild.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).then(function () {
                 responsetime = Date.now();
             });
 

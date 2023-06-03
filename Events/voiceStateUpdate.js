@@ -9,26 +9,26 @@ module.exports = {
     name: 'voiceStateUpdate',
     async execute(oldState, newState) {
 
-        guildsettings = await axios.get('https://api.mumbobot.xyz/management/', {"data": {"id": newState.guild.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+        guildsettings = await axios.get('https://api.agradehost.com/management/', {"data": {"id": newState.guild.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
 
-        const guildvcsettings = await axios.get('https://api.mumbobot.xyz/voicechannels/', {"data": {"id": oldState.guild.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
+        const guildvcsettings = await axios.get('https://api.agradehost.com/voicechannels/', {"data": {"id": oldState.guild.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}})
         //Check for disconnect
         if (newState.channelId == null) {
 
-            vcresponse = await axios.get('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": oldState.channelId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {
+            vcresponse = await axios.get('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": oldState.channelId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {
                 return;
             });
 
             if (vcresponse) {
                 newState.guild.channels.fetch(vcresponse['data']['channel_id']).then(async (channel) => {
                     if (channel.members.size < 1) {
-                        await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                        await axios.delete('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                         channel.delete();
                     } else if (vcresponse['data']['owner'] == newState.member.id) {
                         reassigned = false;
                         for (member of channel.members) {
                             if (!member[1].user.bot) {
-                                await axios.put('https://api.mumbobot.xyz/voicechannels/channel/', {
+                                await axios.put('https://api.agradehost.com/voicechannels/channel/', {
                                     "channel_id": channel.id,
                                     "owner": member[0]
                                 }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
@@ -38,7 +38,7 @@ module.exports = {
                         };
                         if (!reassigned) {
                             channel.delete();
-                            await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                            await axios.delete('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                         };
                     };
                 });
@@ -55,32 +55,32 @@ module.exports = {
                             channel.setParent(guildvcsettings['data']['category'].toString()).catch(function (error) {
                                 return;
                             });
-                            await axios.post('https://api.mumbobot.xyz/voicechannels/channel/', {
+                            await axios.post('https://api.agradehost.com/voicechannels/channel/', {
                                 "guild_id": newState.guild.id,
                                 "channel_id": channel.id,
                                 "owner": newState.member.id
                             }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             newState.setChannel(channel).catch(async function (error) {
                                 channel.delete();
-                                await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                                await axios.delete('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             });
                         });
                     };
                 };
             } else {
-                vcresponse = await axios.get('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": oldState.channelId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {
+                vcresponse = await axios.get('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": oldState.channelId}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}}).catch(function (error) {
                     return;
                 })
                 if (vcresponse) {
                     newState.guild.channels.fetch(vcresponse['data']['channel_id']).then(async (channel) => {
                         if (channel.members.size < 1) {
-                            await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                            await axios.delete('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             channel.delete();
                         } else if (vcresponse['data']['owner'] == newState.member.id) {
                             reassigned = false;
                             for (member of channel.members) {
                                 if (!member[1].user.bot) {
-                                    await axios.put('https://api.mumbobot.xyz/voicechannels/channel/', {
+                                    await axios.put('https://api.agradehost.com/voicechannels/channel/', {
                                         "channel_id": channel.id,
                                         "owner": member[0]
                                     }, {auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
@@ -90,7 +90,7 @@ module.exports = {
                             };
                             if (!reassigned) {
                                 channel.delete();
-                                await axios.delete('https://api.mumbobot.xyz/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
+                                await axios.delete('https://api.agradehost.com/voicechannels/channel/', {"data": {"id": channel.id}, auth: {username: "bot", password: "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ"}});
                             };
                         };
                     });
