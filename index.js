@@ -9,17 +9,17 @@ const { AutoPoster } = require('topgg-autoposter')
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages, GatewayIntentBits.MessageContent] });
 
-const username = "bot";
-const password = "%a_938xZeT_VcY8J7uN7GGHnw4auuvVQ";
+const username = "";
+const password = "";
 
-const ap = AutoPoster('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0NDk5MjAwNTE1ODg2MjkzOSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjUzMjc3MzE2fQ.Vt1p0W9zWl2R1nbmg0PPORPhZCb-SxyQ66hPVIbXqsg', client)
+const ap = AutoPoster('', client)
 
 ap.on('posted', () => {
     console.log('Posted stats to Top.gg!')
 })
 
 Sentry.init({
-  dsn: "https://36d42ebd71e147fca3dfd661f4015daa@o1237600.ingest.sentry.io/6387936",
+  dsn: "",
   integrations: [
     // enable HTTP calls tracing
     new Sentry.Integrations.Http({ tracing: true }),
